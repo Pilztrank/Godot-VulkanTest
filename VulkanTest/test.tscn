@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1ko03h8eyxyk"]
+
+[ext_resource type="PackedScene" uid="uid://dgpjxoygnvyy4" path="res://assets/simple_fpsplayer/Player.tscn" id="1_t53yp"]
+[ext_resource type="PackedScene" uid="uid://bf1utsa4k7xun" path="res://map_1.tscn" id="2_kbi5t"]
+
+[sub_resource type="Environment" id="Environment_plo0o"]
+fog_enabled = true
+fog_light_color = Color(0.537255, 0.552941, 0.572549, 1)
+fog_sun_scatter = 1.0
+fog_density = 0.02
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51351, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_t53yp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.6767, 2.20257, 6.76885)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.267238, 0.96363, 0, -0.96363, 0.267238, 0, 5.05227, 0)
+shadow_enabled = true
+shadow_normal_bias = 1.495
+shadow_opacity = 0.25
+shadow_blur = 0.0
+directional_shadow_mode = 0
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_plo0o")
+
+[node name="MAP1" parent="." instance=ExtResource("2_kbi5t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -235.936, 0, 0)
